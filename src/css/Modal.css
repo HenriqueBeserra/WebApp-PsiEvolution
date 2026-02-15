@@ -1,0 +1,152 @@
+.modal-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.241);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	z-index: 999;
+}
+
+.modal-content {
+	background: #fff;
+	border-radius: 8px;
+	padding: 20px;
+
+	min-width: 80%;
+	max-width: 95%;
+	min-height: 45rem;
+	flex: 1;
+}
+
+.modal-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	position: relative;
+	bottom: 1rem;
+}
+
+.button-close {
+	background-color: transparent;
+	color: #1d1d1d;
+
+	max-width: 30px;
+	margin: 10px;
+
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.button-close:hover {
+	background-color: #1d1d1d;
+	color: #ffffff;
+}
+
+.modal-body {
+	max-height: 100%;
+	max-width: 95%;
+	min-height: 82vh;
+
+	display: flex;
+	flex-direction: column;
+
+	margin: 0 auto;
+}
+
+.main-modal-body {
+	display: flex;
+	gap: 1rem;
+
+	max-width: 100%;
+	width: 98%;
+
+	max-height: 78vh;
+	height: 70vh;
+
+	margin: 0 auto;
+}
+
+.quadro-clinico-container {
+	display: flex;
+	min-width: 40%;
+	max-width: 42%;
+
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.evolucao-container {
+	flex: 1;
+}
+
+.evolucao-container,
+.quadro-clinico-container {
+	border-radius: 8px;
+	padding: 1rem;
+	box-shadow: 1px 2px 3.6px 0.8px #747474a2;
+
+	text-align: justify;
+}
+
+.quadro-clinico-title {
+	margin-bottom: -1.2rem;
+}
+
+.quadro-clinico-descricao {
+	padding: 0.8rem;
+}
+
+.quadro-clinico-descricao {
+	white-space: pre-wrap;
+	outline: none;
+	max-height: 90%; /* limite de altura */
+	overflow-y: auto;
+
+	white-space: pre-wrap;
+	word-break: break-word; /* 👈 ESSENCIAL */
+	overflow-wrap: break-word;
+}
+
+.quadro-clinico-descricao.editando {
+	border: 1px solid #d0d0d0;
+	border-radius: 6px;
+	padding: 8px;
+	background: #fafafa;
+}
+
+.sub-header-quadro-clinico {
+	width: 90%;
+
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.btn-editar,
+.btn-salvar {
+	max-width: 3rem;
+	background-color: #1d1d1d;
+}
+.quadro-clinico-descricao::-webkit-scrollbar {
+	width: 8px;
+}
+
+.quadro-clinico-descricao::-webkit-scrollbar-track {
+	background: transparent; /* REMOVE FUNDO PRETO */
+}
+
+.quadro-clinico-descricao::-webkit-scrollbar-thumb {
+	background-color: #1d1d1d;
+	border-radius: 8px;
+}
+
+/* REMOVE AS SETINHAS (↑ ↓) */
+.quadro-clinico-descricao::-webkit-scrollbar-button {
+	display: none;
+}

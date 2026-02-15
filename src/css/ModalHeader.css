@@ -1,0 +1,22 @@
+.modalheader {
+	display: flex;
+	flex-direction: column;
+
+	width: 70%;
+	text-align: left;
+}
+
+.modal-description {
+	display: flex;
+	flex-direction: row;
+	gap: 4%;
+
+	text-align: left;
+	margin-top: -2.5rem;
+
+	color: #626262;
+}
+
+.paciente-nome {
+	color: #158900;
+}
