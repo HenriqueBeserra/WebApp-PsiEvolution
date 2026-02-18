@@ -60,4 +60,10 @@ button {
 
 button:hover {
 	background-color: #074822;
+	color: #eeeeee;
+}
+
+.error-message {
+	font-size: 10px;
+	margin-bottom: -12px;
 }

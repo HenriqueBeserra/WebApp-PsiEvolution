@@ -17,7 +17,8 @@
 
 	min-width: 80%;
 	max-width: 95%;
-	min-height: 45rem;
+	min-height: 33.5rem;
+	height: 33rem;
 	flex: 1;
 }
 
@@ -75,6 +76,8 @@
 	display: flex;
 	min-width: 40%;
 	max-width: 42%;
+	
+	
 
 	flex-direction: column;
 	align-items: flex-start;
@@ -91,9 +94,11 @@
 	box-shadow: 1px 2px 3.6px 0.8px #747474a2;
 
 	text-align: justify;
+
+	max-height:85%;
 }
 
-.quadro-clinico-title {
+.quadro-clinico-title, .evolucao-title {
 	margin-bottom: -1.2rem;
 }
 
@@ -104,7 +109,7 @@
 .quadro-clinico-descricao {
 	white-space: pre-wrap;
 	outline: none;
-	max-height: 90%; /* limite de altura */
+	max-height: 80%; /* limite de altura */
 	overflow-y: auto;
 
 	white-space: pre-wrap;
@@ -119,7 +124,7 @@
 	background: #fafafa;
 }
 
-.sub-header-quadro-clinico {
+.sub-header-quadro-clinico, .sub-header-evolucao {
 	width: 90%;
 
 	display: flex;
@@ -132,6 +137,7 @@
 .btn-salvar {
 	max-width: 3rem;
 	background-color: #1d1d1d;
+	color: #fafafa;
 }
 .quadro-clinico-descricao::-webkit-scrollbar {
 	width: 8px;

@@ -1,59 +1,80 @@
 import '../css/Forms.css';
 import { useState } from 'react';
-import { handleSubmit } from '../functions/handle-submit-login';
-import {useNavigate} from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { handleSubmitLogin } from '../functions/handle-submit-login';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useNavigate } from 'react-router-dom';
+import {z} from 'zod';
+
+const loginSchema = z.object({
+	userLogin: z.string().min(1, {message: 'O email é obrigatório'}),
+	userPassword: z.string().min(6,{message: 'A senha deve ter pelo menos 6 caracteres'}),
+})
 
 export default function LoginForm() {
+
 	const navigate = useNavigate()
-	const [userLogin, setUserLogin] = useState('');
-	const [userPassword, setUserPassword] = useState('');
+
 	const [erro, setError] = useState('');
 
-	async function onSubmit(){
-		const result = await handleSubmit({
-			userLogin: userLogin,
-			userPassword: userPassword
+	const form = useForm<z.infer<typeof loginSchema>>({
+		resolver: zodResolver(loginSchema),
+		defaultValues: {
+		  userLogin: "",
+		  userPassword: "",
+		},
+	  })
+
+
+	async function onSubmitLogin(data: z.infer<typeof loginSchema>){
+
+		const result = await handleSubmitLogin({
+			userLogin: data.userLogin,
+			userPassword: data.userPassword
 		}, setError)
 
-		if(result?.success){
-			setInterval(()=>{
-				navigate('/home')
-			},1200)
+			if(result?.success){
+				setTimeout(() => {
+					navigate('/home')
+				  }, 1200)
 		}
+
+		
 	}
 
 	return (
-		<div className='form-container'>
-			<label className='form-label'>
-				<p className='p-form-label'>Olá, psi!</p>
-				Vamos entrar na plataforma
-			</label>
-
+		<form
+			id="login-form"
+			onSubmit={form.handleSubmit(onSubmitLogin)}
+			className='form-container'
+		>
 			<input
 				type='email'
-				name='email-input'
-				id=''
 				placeholder='Email'
-				onChange={(element) => setUserLogin(element.target.value)}
-				value={userLogin}
+				{...form.register("userLogin")}
+				
 			/>
-
 			<input
 				type='password'
-				name='password'
 				placeholder='Password'
-				onChange={(psswElement) => setUserPassword(psswElement.target.value)}
-				value={userPassword}
+				{...form.register("userPassword")}
+				
 			/>
+			{form.formState.errors.userLogin && (
+  			<p className='error-message'>{form.formState.errors.userLogin.message}</p>
+			)}
+			{form.formState.errors.userPassword && (
+			<p className='error-message'>{form.formState.errors.userPassword.message}</p>
+			)}
 
 			<button
-				onClick={() => {
-					onSubmit()
-				}}
+				type='submit'
 			>
 				Login
 			</button>
 			{erro && <p>Ops {erro}</p>}
-		</div>
+		</form>
 	);
 }
+
+
