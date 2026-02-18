@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type UserLogin = { userLogin: string; userPassword: string };
 
-export async function handleSubmit({ userLogin, userPassword }: UserLogin,setError: any,) {
+export async function handleSubmitLogin({ userLogin, userPassword }: UserLogin,setError: any,) {
 	if (!userLogin || !userPassword) {
 		throw new Error('Usuário inválido.');
 	}
