@@ -1,3 +1,4 @@
+
 type Props = {
 	view: 'paciente' | 'evolucao';
 	onChangeView: (view: 'paciente' | 'evolucao') => void;
@@ -6,7 +7,7 @@ type Props = {
 export default function LeftbarOptions({ view, onChangeView }: Props) {
 	return (
 		<section className='left-bar-options-container'>
-			<h2>Evolução de Pacientes</h2>
+			<h5>Dashboard</h5>
 			<ol>
 				<li>
 					<button

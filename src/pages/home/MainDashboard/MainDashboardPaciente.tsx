@@ -1,82 +1,15 @@
-import { useState } from 'react';
+import '../../../css/HomePage.css'
+import { useEffect, useState } from 'react';
 import eye from '../../../assets/svgs/eye.svg';
 import Modal from '../../../components/Modal';
-import logo from '../../../assets/svgs/logo-psi.png';
+import CreatePacientModal from '@/components/CreatePacientModal';
+import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import PacientDashboardHeader from '../../../atom/PacientDashboardHeader'
+import { fetchFunction } from '@/functions/fetch-function';
+import { capitalizeWords } from '@/functions/capitalize-words';
 
-const pacientes = [
-	{
-		id: 'bknavetvpr4dgt2fycaq9cf3',
-		nome: 'Henrique Beserra',
-		idade: 17,
-		email: 'beserrahnrq@gmail.com',
-		whats: '81994686223',
-		nome_responsavel: null,
-		contato_responsavel: null,
-	},
-	{
-		id: 'guzz1vu36hzdd3smi4iyahgh',
-		nome: 'Amanda Cristina Da Silva',
-		idade: 26,
-		email: 'cristmanda@gmail.com',
-		whats: '81994686223',
-		nome_responsavel: null,
-		contato_responsavel: null,
-	},
-	{
-		id: 'v03jvno3t47qm65nssf8e0g4',
-		nome: 'Nivanildo Henrique Beserra Da Silva',
-		idade: 26,
-		email: 'zeluiz@gmail.com',
-		whats: '81994686223',
-		nome_responsavel: null,
-		contato_responsavel: null,
-	},
-	{
-		id: 'vguvcoktcl63lugp2xvkssdsnqc',
-		nome: 'Henrique Beserra ',
-		idade: 26,
-		email: 'zeluiz@gmail.com',
-		whats: '81994686223',
-		nome_responsavel: null,
-		contato_responsavel: null,
-	},
-	{
-		id: 'bknavetvpr4dgt2fycasaaq9cf3',
-		nome: 'Henrique Beserra',
-		idade: 17,
-		email: 'beserrahnrq@gmail.com',
-		whats: '81994686223',
-		nome_responsavel: null,
-		contato_responsavel: null,
-	},
-	{
-		id: 'bknavetvpr4dgt2asafycaq9cf3',
-		nome: 'Henrique Beserra',
-		idade: 17,
-		email: 'beserrahnrq@gmail.com',
-		whats: '81994686223',
-		nome_responsavel: null,
-		contato_responsavel: null,
-	},
-	{
-		id: 'bknavetvpr4dgt2fycaq9c11',
-		nome: 'Henrique Beserra',
-		idade: 17,
-		email: 'beserrahnrq@gmail.com',
-		whats: '81994686223',
-		nome_responsavel: null,
-		contato_responsavel: null,
-	},
-	{
-		id: 'basasknavetvpr4dgt2fycaq9c11',
-		nome: 'Henrique Beserra',
-		idade: 17,
-		email: 'beserrahnrq@gmail.com',
-		whats: '81994686223',
-		nome_responsavel: null,
-		contato_responsavel: null,
-	},
-];
+
+
 
 type paciente = {
 	id: string;
@@ -94,26 +27,47 @@ export default function MainDashboardPacient() {
 	const [, setActiveId] = useState<string | null>(null);
 	const [selectedPaciente, setSelectedPaciente] = useState<paciente | null>(null);
 	const [openModal, setOpenModal] = useState(false);
+	const [openCreatePacientModal, setOpenCreatePacientModal] = useState(false);
+	const [listOfPacients, setListOfPacients] = useState<paciente[] | undefined>(undefined)
 
+	async function refreshPacients() {
+		const secret = await localStorage.getItem('token')
+		const paciente = await fetchFunction('http://localhost:3333/get_pacient', secret)
+		if (!paciente) return
+		if (Array.isArray(paciente)) setListOfPacients(paciente)
+	}
+
+	useEffect(() => {
+		refreshPacients()
+	}, [])
+	
+	
 	return (
 		<section className='main-dashboard-container'>
-			<div className='main-header-dashboard'>
-				<img src={logo} alt='' className='logo-img-left' />
-				<div className='header-dashboard'>
-					<h3>Olá, Nivanildo Beserra</h3>
-					<h4> Seja bem vindo de volta a sua plataforma de gestão.</h4>
-				</div>
+			<PacientDashboardHeader/>
+			<div className='flex flex-row pb-1 border-b-[0.916px]'>
+				<h3 className='w-[71%] text-left'>Pacientes</h3>
+				<nav className='flex flex-row'>
+					<span 
+						onClick={(e)=> {
+							e.stopPropagation();
+							setOpenCreatePacientModal(true)
+						}}
+						className='flex flex-rows items-center text-[0.850rem] text-right gap-0.5  text-zinc-500 hover:cursor-pointer hover:text-green-600' >
+						<PlusCircleIcon className="w-4 h-4"/> Novo paciente
+					</span>
+				</nav>
 			</div>
-			<h3 className='dashboard-content-h3'>Pacientes</h3>
 			<div className='main-dashboard-content'>
-				{pacientes.map((paciente) => {
+				{listOfPacients?.map((paciente) => {
+					const pacientName = capitalizeWords(paciente.nome)
 					return (
 						<ul
 							className={'li-pacient-container'}
 							key={paciente.id}
 							onClick={() => setActiveId(paciente.id)}
 						>
-							<li className='li-pacient-name'> {paciente.nome}</li>
+							<li className='li-pacient-name'> {pacientName}</li>
 							<li>{paciente.idade} Anos</li>
 							{paciente.id ? <li> Paciente Ativo</li> : <li>Paciente Liberado</li>}
 							<li
@@ -123,7 +77,7 @@ export default function MainDashboardPacient() {
 									setOpenModal(true);
 								}}
 							>
-								<img className='li-pacient-img' src={eye} />
+								<img className='li-pacient-img hover:cursor-pointer' src={eye} />
 							</li>
 						</ul>
 					);
@@ -132,6 +86,11 @@ export default function MainDashboardPacient() {
 					isOpen={openModal}
 					onClose={() => setOpenModal(false)}
 					paciente={selectedPaciente}
+				/>
+				<CreatePacientModal
+					isOpen={openCreatePacientModal}
+					onClose={() => setOpenCreatePacientModal(false)}
+					onSuccess={refreshPacients}
 				/>
 			</div>
 		</section>

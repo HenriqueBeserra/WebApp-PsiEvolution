@@ -1,3 +1,4 @@
+import { capitalizeWords } from '@/functions/capitalize-words';
 import '../css/ModalHeader.css';
 
 type Pacient = {
@@ -20,10 +21,12 @@ export default function ModalHeader({ paciente }: propsPacient) {
 		'+55 $1 $2 $3-$4',
 	);
 
+	const pacientName = capitalizeWords(paciente.nome)
+
 	return (
 		<section className='modalheader'>
-			<h4 className='modal-title'>
-				Seu paciente <span className='paciente-nome'> {paciente.nome}</span>
+			<h4 className='header-modal-title'>
+				Seu paciente <span className='text-green-600'> {pacientName}</span>
 			</h4>
 			<div className='modal-description'>
 				<h5>{paciente.email}</h5>

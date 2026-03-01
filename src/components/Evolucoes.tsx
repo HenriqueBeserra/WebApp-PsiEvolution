@@ -9,25 +9,22 @@ import '../css/Modal.css';
 // 			))} */}
 
 
-const pacientes = [
+const evolucoes = [
 	{
 		id: 'bknavetvpr4dgt2fycaq9cf3',
-		nome: 'Henrique Beserra',
-		idade: 17,
-		email: 'beserrahnrq@gmail.com',
-		whats: '81994686223',
-		nome_responsavel: null,
-		contato_responsavel: null,
+		descricao: 'Paciente reclama de cansasso físico, não consegue dormir por não parar de pensar',
+		data: '23/02/2026',
+		idUser: 'guzz1vu36hzdd3smi4iyahgh',
+	
 	},
 	{
-		id: 'guzz1vu36hzdd3smi4iyahgh',
-		nome: 'Amanda Cristina Da Silva',
-		idade: 26,
-		email: 'cristmanda@gmail.com',
-		whats: '81994686223',
-		nome_responsavel: null,
-		contato_responsavel: null,
+		id: 'bknavetvpr4dgt2fycaq9cf3',
+		descricao: 'Confusão mental menor, sono regulado',
+		data: '26/02/2026',
+		idUser: 'guzz1vu36hzdd3smi4iyahgh',
+	
 	},
+	
 ]
 
 export default function Evolucao() {
@@ -35,22 +32,20 @@ export default function Evolucao() {
 	
 	return 	(
 	
-	
-	
 		<div className='evolucao-container'>
-					<h4 className='evolucao-title'>Evolução Paciente</h4>
+				<h4 className='evolucao-title'>Evolução Paciente</h4>
 
-					<div className='sub-header-evolucao'>
-						<h5>Gerencie a evolção dos seus Pacientes.</h5>
-					</div>
+				<div className='sub-header-evolucao'>
+					<h5 className='text-[0.7rem]'>Gerencie a evolção dos seus Pacientes.</h5>
+				</div>
 				<div>
-				{pacientes.map(paciente => {
-					return (
-						<div>
-							{paciente.nome}
-						</div>
-					)
-				})}
+					{evolucoes.map(evo => {
+						return (
+							<div className='p-0.5 m-1'>
+								Evolução criada dia <span className='text-green-600'>{evo.data}</span>
+							</div>
+						)
+					})}
 				</div>
 			</div>
 	)

@@ -44,7 +44,7 @@ input:focus {
 	outline: none;
 }
 
-button {
+.btn-login {
 	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 
 	width: 16.8rem;
@@ -58,7 +58,7 @@ button {
 	border: none;
 }
 
-button:hover {
+.btn-login:hover {
 	background-color: #074822;
 	color: #eeeeee;
 }
