@@ -33,6 +33,11 @@
 .pataforma-logo {
 	padding-top: 6%;
 	margin-bottom: -10%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .footer-list-container {
@@ -75,6 +80,10 @@ li {
 
 input {
 	color: #f9f9f9;
+	border: solid 0.2px #3cff00;
+	padding: 4px;
+
+	font-weight: lighter;
 }
 
 @media (prefers-color-scheme: light) {

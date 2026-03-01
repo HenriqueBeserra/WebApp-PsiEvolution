@@ -59,6 +59,10 @@
 	margin: 0 auto;
 }
 
+.modal-title {
+	font-weight: bold;
+} 
+
 .main-modal-body {
 	display: flex;
 	gap: 1rem;
@@ -70,6 +74,7 @@
 	height: 70vh;
 
 	margin: 0 auto;
+	margin-top: 2.5%;
 }
 
 .quadro-clinico-container {
@@ -95,12 +100,9 @@
 
 	text-align: justify;
 
-	max-height:85%;
+	max-height:90%;
 }
 
-.quadro-clinico-title, .evolucao-title {
-	margin-bottom: -1.2rem;
-}
 
 .quadro-clinico-descricao {
 	padding: 0.8rem;
@@ -131,13 +133,18 @@
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: space-between;
+
+	margin-bottom: 0.8rem;
 }
 
 .btn-editar,
 .btn-salvar {
-	max-width: 3rem;
+	max-width: 16%;
 	background-color: #1d1d1d;
 	color: #fafafa;
+
+	font-size: 1rem;
+	margin-top: -5%;
 }
 .quadro-clinico-descricao::-webkit-scrollbar {
 	width: 8px;
@@ -155,4 +162,32 @@
 /* REMOVE AS SETINHAS (↑ ↓) */
 .quadro-clinico-descricao::-webkit-scrollbar-button {
 	display: none;
+}
+
+.editando {
+	max-width:100%;
+	width: 98%;
+}
+
+.modal-createpacient-overlay{
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.241);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	z-index: 999;
+}
+
+.modal-createpacient-content {
+	background: #fff;
+	border-radius: 8px;
+	padding: 20px;
+
+	max-width: 40%;
+	min-height: 33.5rem;
+	height: 33rem;
+	flex: 1;
 }

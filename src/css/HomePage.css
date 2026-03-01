@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap");
 
+
 .home-page-container {
 	max-width: 100vw;
 	height: 100vh;
@@ -15,9 +16,9 @@
 	min-width: 200px;
 
 	/* background: linear-gradient(0deg,rgba(2, 131, 56, 0.834) 0.18%, rgba(0, 50, 23, 0.97) 0.25%, rgb(34, 34, 34) 32%); */
-	background-color: rgba(2, 222, 50, 0.625);
+	background-color: #00a64b;
 	padding: 10px;
-	color: #1f1f1f;
+	color: #ffffff;
 
 	display: flex;
 	align-items: center;
@@ -26,8 +27,8 @@
 }
 
 .logo-img-left {
-	width: 5rem;
-	margin-top: -4.8rem;
+	width: 3.5rem;
+	margin-top: -3.4rem;
 }
 
 .main-header-dashboard {
@@ -40,6 +41,7 @@
 .btn-left-options-evolucao {
 	background-color: transparent;
 	max-width: 75%;
+	font-family: "Manrope", sans-serif;	
 }
 .btn-left-options-paciente:hover,
 .btn-left-options-evolucao:hover {
@@ -61,8 +63,12 @@
 .header-dashboard {
 	text-align: left;
 	line-height: 0.5rem;
+
+	display: flex;
+	flex-direction: column;
 	margin-bottom: 5%;
 	font-size: 12px;
+	gap: 0.6rem;
 }
 
 .main-content {
@@ -141,7 +147,7 @@ ol {
 }
 
 .main-dashboard-content::-webkit-scrollbar-thumb {
-	background-color: #12ae01;
+	background-color: #00a64b;
 	border-radius: 8px;
 }
 
@@ -157,7 +163,7 @@ ol {
 }
 
 .li-pacient-img:hover {
-	width: 1.3rem;
+	width: 1.229rem;
 }
 
 footer {

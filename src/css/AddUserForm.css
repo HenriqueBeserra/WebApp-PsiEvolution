@@ -1,0 +1,33 @@
+.add-user-form{
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 12%;
+}
+
+.add-user-form input {
+    background-color:  #fff;
+    color: rgb(96, 96, 96);
+
+    border: none;
+    border-radius: 0px;
+    border-bottom: solid 1px gray;
+
+    width: 75%;
+}
+
+.add-btn {
+    padding: 0.516rem;
+    width: 50%;
+    border-radius: 0.256rem;
+
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+}
+
+.add-btn:hover {
+    background-color: #099427;
+}

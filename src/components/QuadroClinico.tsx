@@ -34,7 +34,7 @@ export default function QuadroClinico({ pacientId }: propsPacientID) {
 			<h4 className='quadro-clinico-title'>Quadro Clinico do Paciente</h4>
 
 			<div className='sub-header-quadro-clinico'>
-				<h5>Anamnese e Observações</h5>
+				<h5 className='text-[0.7rem]'>Anamnese e Observações</h5>
 				<>
 					{!editando ? (
 						<button onClick={editar} className='btn-editar'>
