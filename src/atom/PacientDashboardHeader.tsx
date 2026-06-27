@@ -7,7 +7,7 @@ export default function PacientDashboardHeader (){
             <img src={logo} alt='' className='logo-img-left' />
                 <div className='header-dashboard'>
                     <h3>Olá, Nivanildo Beserra</h3>
-                    <h4> Seja bem vindo de volta a sua plataforma de gestão.</h4>
+                    <h4> Seja bem-vindo de volta a sua plataforma de gestão.</h4>
                 </div>
         </div>
     )

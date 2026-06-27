@@ -1,3 +1,4 @@
+import '../../../css/HomePage.css';
 
 type Props = {
 	view: 'paciente' | 'evolucao';

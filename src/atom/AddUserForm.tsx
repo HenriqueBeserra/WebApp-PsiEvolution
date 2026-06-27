@@ -3,19 +3,9 @@ import '../css/AddUserForm.css'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form';
 import {z} from 'zod'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { pacientSchema } from '@/schemas/pacient-schema';
 
-
-
-// Aligned with API: Psievolution createPacientBodySchema + PacientSchema (nome min 3, whats 10+ digits)
-const pacientSchema = z.object({
-    userName: z.string().min(3, { message: "Nome deve ter pelo menos 3 caracteres" }),
-    userAge: z.string().min(1, { message: "Idade obrigatória" }).refine((val) => !Number.isNaN(Number(val)) && Number(val) >= 0, { message: "Idade inválida" }),
-    userEmail: z.string().min(1, { message: "Email é obrigatório" }),
-    userWhats: z.string().min(1, { message: "Contato é obrigatório" }).refine((v) => v.replace(/\D/g, '').length >= 10, { message: "WhatsApp deve ter pelo menos 10 dígitos" }),
-    userResponsavel: z.string().optional(),
-    userContatoResponsavel: z.string().optional()
-})
 
 type AddUserFormProps = {
 	onSuccess?: () => void;
@@ -37,6 +27,7 @@ export default function AddUserForm({ onSuccess }: AddUserFormProps) {
 		},
 	  })
 
+
     async function onSubmitLogin(data: z.infer<typeof pacientSchema>){
         setError("");
         setCreated("");
@@ -54,6 +45,11 @@ export default function AddUserForm({ onSuccess }: AddUserFormProps) {
             onSuccess?.()
         }
 	}
+
+    useEffect(() => {
+        if (erro) window.alert(" Ops, Algo deu errado: " + erro);
+        else if (created) window.alert(created);
+    }, [erro, created]);
 
     return(
         <form 
@@ -73,8 +69,7 @@ export default function AddUserForm({ onSuccess }: AddUserFormProps) {
 			)}
 
             <button className='add-btn' type='submit'>Criar</button>
-            {erro && <p>Ops {erro}</p>}
-            {created && <p>{created}</p>}
+
         </form>
     )
 }
