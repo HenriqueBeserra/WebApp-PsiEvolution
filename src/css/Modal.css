@@ -37,7 +37,10 @@
 	color: #1d1d1d;
 
 	max-width: 30px;
+	width: 30px;
 	margin: 10px;
+
+	border-radius: 4px;
 
 	cursor: pointer;
 	font-size: 15px;
@@ -140,12 +143,23 @@
 .btn-editar,
 .btn-salvar {
 	max-width: 16%;
+	width: 16%;
+
+	border-radius: 4px;
 	background-color: #1d1d1d;
 	color: #fafafa;
 
 	font-size: 1rem;
 	margin-top: -5%;
+
+	
 }
+
+.btn-editar:hover,
+.btn-salvar:hover {
+	background-color: #169200;
+}
+
 .quadro-clinico-descricao::-webkit-scrollbar {
 	width: 8px;
 }

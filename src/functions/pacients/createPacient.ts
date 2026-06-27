@@ -1,7 +1,7 @@
 const url = 'http://localhost:3333/create_pacient'
 
 type paciente = {
-    nome:string,
+    nome:string,    
     idade: number,
     email:string,
     whats: string,
@@ -39,7 +39,7 @@ export async function createPacients(data: paciente, setErro: any){
 
         const errBody = await apiResponse.json().catch(() => ({}))
         const message = errBody?.message ?? errBody?.error ?? `Erro ${apiResponse.status}`
-        
+
         setErro(typeof message === 'string' ? message : JSON.stringify(message))
         return undefined
     } catch (error) {

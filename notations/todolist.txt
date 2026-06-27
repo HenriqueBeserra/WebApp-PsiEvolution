@@ -1,0 +1,5 @@
+{
+    criar uma função de verificação de validade do token para melhor assertividade da 
+    validação de logon da pagina /home
+    Pendente, 01/03/2026
+}

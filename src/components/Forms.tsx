@@ -51,12 +51,14 @@ export default function LoginForm() {
 			<input
 				type='email'
 				placeholder='Email'
+				className='input-login'
 				{...form.register("userLogin")}
 				
 			/>
 			<input
 				type='password'
 				placeholder='Password'
+				className='input-login'
 				{...form.register("userPassword")}
 				
 			/>

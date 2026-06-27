@@ -1,0 +1,26 @@
+.main_landing_container {
+    width: 95%;
+    text-align: left;
+
+    margin: auto;
+    padding: 15%;
+}
+
+.main_landing_title{
+   font-size: 2rem;
+}
+
+.main_landing_container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.main_landing_container h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #3ea93e;
+    text-align: justify;
+    font-weight: lighter;
+}

@@ -78,7 +78,7 @@ li {
 	font-size: 0.8rem;
 }
 
-input {
+.input-login {
 	color: #f9f9f9;
 	border: solid 0.2px #3cff00;
 	padding: 4px;

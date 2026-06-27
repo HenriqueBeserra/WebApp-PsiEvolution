@@ -27,7 +27,7 @@
 }
 
 
-input {
+.input-login {
 	width: 16rem;
 	height: 1.5rem;
 
@@ -39,7 +39,7 @@ input {
 	background-color: rgb(29, 29, 29);
 }
 
-input:focus {
+.input-login:focus {
 	border-color: rgb(0, 102, 255);
 	outline: none;
 }
