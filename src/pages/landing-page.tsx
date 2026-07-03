@@ -17,6 +17,7 @@
 
 import HeaderLandingPage from "@/components/landing-page/header-landing"
 import MainLanding from "@/components/landing-page/main-landing"
+import "../css/landin-page/LandingPage.css"
 
 export default function LandingPage(){
 
@@ -30,7 +31,7 @@ export default function LandingPage(){
     // }, [])
     
     return(
-        <div >
+        <div>
             <HeaderLandingPage />
             <MainLanding />
         </div>

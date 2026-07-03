@@ -2,21 +2,27 @@
     box-sizing: border-box;
 }
 
+.home-landing-page-container {
+    background-color: #ffffff;
+    padding-top: 2%;
+}
+
+
 .header-landing-page {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
    
+    max-width: 98%;
+    margin: auto;
     min-height: 70vh;
-    margin-top: 6%;
-
     background-color: #3cab25;
     border-radius: 12px;
     /* background-color: #00a64b; */
 }
 
 .header-landing-page-text {
-    padding-top: 65px;
+    padding-top: 10%;
 }
 
 .header-landing-page p,
@@ -39,9 +45,10 @@
 }
 
 .logo-landing-page{
-    width:450px;
+    width:650px;
     max-width:100%;
     height:auto;
+    
 }
 
 .header-information-ul {

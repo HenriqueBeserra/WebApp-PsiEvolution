@@ -1,4 +1,6 @@
 import "../../css/landin-page/main-landing-page.css"
+import imgOffice from "../../assets/images/sofaimage.jpeg"
+
 
 export default function MainLanding () {
     return (
@@ -16,6 +18,17 @@ export default function MainLanding () {
             </p>
 
             <h3>Sua história merece ser ouvida com respeito, compreendida com profundidade e acolhida sem julgamentos.</h3>
+            <section className="main_landing_container_image">
+                <img
+                    className="landing_img"
+                    src={imgOffice}
+                    alt="Imagem de um consultório de psicólogo"
+                />
+
+                <div className="landing_text">
+                    <p>Consultório</p>
+                </div>
+            </section>
         </div>
     )
 }

@@ -5,7 +5,7 @@ import logo from '../../assets/images/nivanildo_s_bg.png';
 export default function HeaderLandingPage(){
 
     return(
-       <div>
+       <div className="home-landing-page-container">
          <div className="header-landing-page">
             <div className="header-landing-page-text">
                 <h1>Olá, <br></br>Eu sou o  Nivanildo Beserra. </h1>
